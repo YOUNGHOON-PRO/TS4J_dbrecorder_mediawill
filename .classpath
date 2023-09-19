@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_161">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/eclipse/lib/activation.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/classes12.zip"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/commons-daemon.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/crimson.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/db2java.zip"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/db2jcc.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/decode.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/engine.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/FileManager-0.0.1-SNAPSHOT-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/gauce.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/gcm-server.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/ifxjdbc.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/jasypt-1.9.3 - 복사본.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/jasypt-1.9.3.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/jaxp-ri-1.4.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/jconn2.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/jecf.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/jndi.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/jsdk23.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/json-simple-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mail.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mplib_1.0.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mplib_1.1.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mplib_1.2.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mplib_1.3.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mplib_1.4.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mplib_lge.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/msbase.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mssqlserver.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/msutil.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mysql-connector-java-5.0.7-bin.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/mysql-connector-java-8.0.25.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/poi-2.5.1-final-20040804.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/postgresql-8.2-507.jdbc3.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/rowset.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/signgate.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/smeapi_2_1.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/smeapi_2_2.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/SMSListner.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/sqljdbc4.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/startup.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/tagfree_mime_v7.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/tidy.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/weblogic_8.1.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/xei.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/xei_bak.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/log4j-2.17.1/log4j-api-2.17.1.jar"/>
+	<classpathentry kind="lib" path="D:/eclipse/lib/log4j-2.17.1/log4j-core-2.17.1.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

@@ -1,0 +1,96 @@
+
+################################################################
+이클립스에서 DBRecoder 구동을 위해 config 및 파일 경로 절대 경로로 수정
+################################################################
+
+1.	Config_File_Receiver.java
+
+	AS-IS
+		config = new FileInputStream("../config/DBRecorder.conf");
+		
+		dbconf = new FileInputStream("../config/database.conf");
+        
+		
+	TO-BE
+	 	//config = new FileInputStream("../config/DBRecorder.conf");
+        config = new FileInputStream("./config/DBRecorder.conf");
+        
+        //dbconf = new FileInputStream("../config/database.conf");
+		dbconf = new FileInputStream("./config/database.conf");
+		
+		
+2. DBRecorder.conf
+
+	AS-IS
+		Root_Dir=../Queue_0
+		
+	TO-BE
+		#Root_Dir=../Queue_0
+		Root_Dir=Queue_0
+		
+		
+
+
+		
+20210712
+
+
+#############################
+mysql DB에러 조치
+#############################
+
+에러내용 : [ 2021/07/12 125:46:56 ]DBRecorder_Insert - commit() : java.sql.SQLException: Can't call commit when autocommit=true
+
+조치내용 : 
+
+
+DBRecorder_Insert.java
+파일에 autocommit 부분 주석제거 및 커밋으로 추가로 조치 완료
+
+    	AS-IS
+    	
+    	//connection.setAutoCommit(false);
+    	
+    	TO-BE
+    	
+    	connection.setAutoCommit(false);
+    	connection.commit();
+
+    	
+
+20210812
+#############################
+TS_MAILQUEUE_DOMAIN 인서트 에러 조치
+#############################
+connection을 여러게로 사용하다보니 DB 락이 걸려 인서트문에서 오류가남
+mysql만 문제가 되는거 같아 하나의 conn 으로 수정 조치
+
+
+AS-IS
+
+      pstmt_stat_MID = conn_stat_MID.prepareStatement(strQuery_stat);
+
+      pstmt_stat_DOMAIN = conn_stat_DOMAIN.prepareStatement(strQuery_stat_DOMAIN);
+      
+      pstmt_insert_DOMAIN = conn_insert_DOMAIN.prepareStatement(strQuery_insert_DOMAIN);
+      
+      pstmt_insert_DOMAIN2 = conn_insert_DOMAIN2.prepareStatement(strQuery_insert_DOMAIN2);
+      
+
+TO-BE
+
+//      pstmt_stat_MID = conn_stat_MID.prepareStatement(strQuery_stat);
+      pstmt_stat_MID = conn.prepareStatement(strQuery_stat);
+
+
+//      pstmt_stat_DOMAIN = conn_stat_DOMAIN.prepareStatement(strQuery_stat_DOMAIN);
+      pstmt_stat_DOMAIN = conn.prepareStatement(strQuery_stat_DOMAIN);
+
+      
+//      pstmt_insert_DOMAIN = conn_insert_DOMAIN.prepareStatement(strQuery_insert_DOMAIN);
+      pstmt_insert_DOMAIN = conn.prepareStatement(strQuery_insert_DOMAIN);
+      
+//      pstmt_insert_DOMAIN2 = conn_insert_DOMAIN2.prepareStatement(strQuery_insert_DOMAIN2);
+      pstmt_insert_DOMAIN2 = conn.prepareStatement(strQuery_insert_DOMAIN2);  
+      
+      		
