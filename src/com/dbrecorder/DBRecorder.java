@@ -46,6 +46,8 @@ public class DBRecorder extends Thread
 		neoQueue_DirManager.start();
 
 		this.start();
+		
+		new DemonCheck_DBrecorder("DBrecorder").start();
 	}
 
 	public void run()

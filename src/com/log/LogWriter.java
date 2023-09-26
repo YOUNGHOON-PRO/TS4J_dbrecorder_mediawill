@@ -89,7 +89,7 @@ public class LogWriter
 					fw = null;
 				}
 			}
-			catch(Exception e) {}
+			catch(Exception e) {LOGGER.error(e);}
 
 			try {
 				if( historyWriter != null ) {

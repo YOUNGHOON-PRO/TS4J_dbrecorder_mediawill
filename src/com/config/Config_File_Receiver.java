@@ -15,9 +15,13 @@ import java.util.*;
 
 import com.log.LogWriter;
 import com.util.EncryptUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Config_File_Receiver
 {
+	private static final Logger LOGGER = LogManager.getLogger(Config_File_Receiver.class.getName());
+	
 	private static Config_File_Receiver instance;
 
 	LogWriter logWriter;
@@ -81,8 +85,8 @@ public class Config_File_Receiver
 		try
 		{
 			//configuration for work.
-                        //config = new FileInputStream("../config/DBRecorder.conf");
-                        config = new FileInputStream("./config/DBRecorder.conf");
+                        config = new FileInputStream("../config/DBRecorder.conf");
+                        //config = new FileInputStream("./config/DBRecorder.conf");
 			props.load(config);
 
 			NeoSMTP_Agent=Integer.parseInt(props.getProperty("NeoSMTP_Agent"));
@@ -104,8 +108,8 @@ public class Config_File_Receiver
 			Log_Sep=props.getProperty("Log_Sep");
 
                         //configuration for db connection.
-                        //dbconf = new FileInputStream("../config/database.conf");
-                        dbconf = new FileInputStream("./config/database.conf");
+                        dbconf = new FileInputStream("../config/database.conf");
+                        //dbconf = new FileInputStream("./config/database.conf");
                         props.load(dbconf);
 
                         DB_DRIVER=props.getProperty("DRIVER");
@@ -123,6 +127,7 @@ public class Config_File_Receiver
 		}
 		catch(Exception e)
 		{
+			LOGGER.error(e);
 			logWriter.logWrite("CONFIG_FILE_RECEIVER ERROR","construct",e);
 		}finally{
                   try{
@@ -130,7 +135,7 @@ public class Config_File_Receiver
                       config.close();
                     if (dbconf != null)
                       dbconf.close();
-                  }catch(Exception e){}
+                  }catch(Exception e){LOGGER.error(e);}
                 }
 	}
 }

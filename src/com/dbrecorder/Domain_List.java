@@ -1,8 +1,8 @@
 /*
-* Å¬·¡½º¸í: DBRecorder_Insert.java
-* ¹öÀüÁ¤º¸: JDK 1.4.1
-* ¿ä¾à¼³¸í: DOMAIN º° Åë°è Ã³¸®
-* ÀÛ¼ºÀÏÀÚ: 2003-04-04 ÇÏ±¤¹ü_a
+* Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: DBRecorder_Insert.java
+* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: JDK 1.4.1
+* ï¿½ï¿½à¼³ï¿½ï¿½: DOMAIN ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½
+* ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½: 2003-04-04 ï¿½Ï±ï¿½ï¿½ï¿½_a
  */
 
 package com.dbrecorder;
@@ -15,9 +15,14 @@ import java.text.*;
 import com.config.Config_File_Receiver;
 import com.log.LogWriter;
 import com.dbrecorder.Statistics_DOMAIN;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Domain_List
 {
+	
+	private static final Logger LOGGER = LogManager.getLogger(Domain_List.class.getName());
+	
 	Config_File_Receiver config_File_Receiver;
 	LogWriter logWriter;
 
@@ -28,7 +33,7 @@ public class Domain_List
 	}
 
 	/**
-	 *    MID  º° µî·Ï DOMAIN ¸®½ºÆ® ¸¸µë
+	 *    MID  ï¿½ï¿½ ï¿½ï¿½ï¿½ DOMAIN ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 	 *    @param    int tmpMID
 	 *    @return   Vector
 	 */
@@ -65,6 +70,7 @@ public class Domain_List
 		}
 		catch(Exception e)
 		{
+			LOGGER.error(e);
 			logWriter.logWrite("Domain_List", "getDomainList", e);
 			return null;
 		}
@@ -77,6 +83,7 @@ public class Domain_List
 				}
 			}
 			catch(Exception e) {
+				LOGGER.error(e);
 			}
 
 			try
@@ -87,6 +94,7 @@ public class Domain_List
 				}
 			}
 			catch(Exception e) {
+				LOGGER.error(e);
 			}
 		}
 	}

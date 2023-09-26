@@ -5,11 +5,16 @@ import java.util.*;
 
 import com.config.Config_File_Receiver;
 import com.log.LogWriter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-//2003.10.1 ¿µ¸Ç º¯°æ
-//ÀÏ´Ü subfolder°¡ ¾ø´Â°Å¸¸ (1,2,3....ÀÌ ¾ø´Â°Å¸¸ ) ±× mid Æú´õ¸¦ Áö¿ìµµ·Ï º¯°æÇÑ´Ù.
+//2003.10.1 ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+//ï¿½Ï´ï¿½ subfolderï¿½ï¿½ ï¿½ï¿½ï¿½Â°Å¸ï¿½ (1,2,3....ï¿½ï¿½ ï¿½ï¿½ï¿½Â°Å¸ï¿½ ) ï¿½ï¿½ mid ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ìµµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 public class NeoQueue_DirManager extends Thread
 {
+	
+	private static final Logger LOGGER = LogManager.getLogger(NeoQueue_DirManager.class.getName());
+	
 	Config_File_Receiver config_File_Receiver;
 	LogWriter logWriter;
 
@@ -24,18 +29,18 @@ public class NeoQueue_DirManager extends Thread
 		vContentsDir = new Vector();
 	}
 
-	//ÇÏÀ§ Æú´õ¿¡ 1,2,3 Æú´õ°¡ ¾ø´Â°Å¸¸ Áö¿öÁØ´Ù.
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1,2,3 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°Å¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	private void dirDelete(String tmpSubPath)
 	{
-		//System.out.println("Áö¿ï°Íµé:"+vContentsDir);
+		//System.out.println("ï¿½ï¿½ï¿½ï¿½Íµï¿½:"+vContentsDir);
 		File fileList = new File(tmpSubPath);
 
-		//1,2,3ÀÇ Æú´õ°¡ ¾ø´Ù¸é... ÀÏ´Ü ±×°ÍÀº Áö¿î´Ù.
+		//1,2,3ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½... ï¿½Ï´ï¿½ ï¿½×°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 		if( fileList.list() == null )
 		{
-			//System.out.println("fileList°¡ ¾Æ¿¹¾ø´Ù´Â ¼Ò¸®±º");
+			//System.out.println("fileListï¿½ï¿½ ï¿½Æ¿ï¿½ï¿½ï¿½ï¿½Ù´ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½");
 		}
-		else	//ÆÄÀÏÀÌ ¸Õ°¡ ÀÕ´Ù´Â ¼Ò¸®±º
+		else	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Õ°ï¿½ ï¿½Õ´Ù´ï¿½ ï¿½Ò¸ï¿½ï¿½ï¿½
 		{
 			if( fileList.list().length == 0 )
 			{
@@ -45,7 +50,7 @@ public class NeoQueue_DirManager extends Thread
 						break;
 					}
 				}
-				//	System.out.println("»èÁ¦ÇÒ Æú´õ:"+fileList.getName());
+				//	System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½:"+fileList.getName());
 			}
 		}
 	}
@@ -76,7 +81,7 @@ public class NeoQueue_DirManager extends Thread
 //        else
 //        {
 //            fileList.delete();
-//            System.out.println("»èÁ¦ÇÒ Æú´õ:"+fileList.getName());
+//            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½:"+fileList.getName());
 //        }
 //    }
 //
@@ -86,7 +91,7 @@ public class NeoQueue_DirManager extends Thread
 //        {
 //            if(delFile.exists())
 //            {
-//            	System.out.println("»èÁ¦ÇÒ ÆÄÀÏ¸í:"+delFile.getName());
+//            	System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½:"+delFile.getName());
 //                delFile.delete();
 //            }
 //
@@ -114,13 +119,14 @@ public class NeoQueue_DirManager extends Thread
 					for( int i = 0; i < vecSize; i++ ) {
 						dirDelete((String) vContentsDir.get(i));
 					}
-					//´Ù Áö¿öÁÖ°í clear ½ÃÅ²´Ù.
+					//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö°ï¿½ clear ï¿½ï¿½Å²ï¿½ï¿½.
 
 					vContentsDir.clear();
 				}
 				this.sleep(1000*60*config_File_Receiver.Dir_Delete_Period);
 			}
 			catch(Exception e) {
+				LOGGER.error(e);
 				logWriter.logWrite("NeoQueue_DirManager","run()",e);
 			}
 		}
@@ -158,6 +164,7 @@ public class NeoQueue_DirManager extends Thread
 		}
 		catch(Exception e)
 		{
+			LOGGER.error(e);
 			logWriter.logWrite("NeoQueue_DirManager","makeMangeDir()",e);
 		}
 	}

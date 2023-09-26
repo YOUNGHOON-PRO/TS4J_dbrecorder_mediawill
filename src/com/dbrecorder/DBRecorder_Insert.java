@@ -409,7 +409,7 @@ public class DBRecorder_Insert {
 		} catch (Exception e) {
 			LOGGER.error(e);
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			//e.printStackTrace();
 		}  
       }
 	  
@@ -652,7 +652,7 @@ public class DBRecorder_Insert {
         }
         catch (Exception e) {
         	LOGGER.error(e);
-          e.printStackTrace();
+          //e.printStackTrace();
           logWriter.logWrite("DBRecorder_Insert", "insertLog() - ", e);
           dataVector.addElement(logData);
           errorDataNum++;
@@ -791,7 +791,7 @@ public class DBRecorder_Insert {
     }
     catch (Exception e) {
     	LOGGER.error(e);
-      e.printStackTrace();
+      //e.printStackTrace();
       logWriter.logWrite("DBRecorder_Insert", "insertLog()", e);
       return -2;
     }
@@ -808,7 +808,7 @@ public class DBRecorder_Insert {
           lineReader = null;
         }
       }
-      catch (Exception e) {}
+      catch (Exception e) {LOGGER.error(e);}
     }
 
     return logDataNum;
