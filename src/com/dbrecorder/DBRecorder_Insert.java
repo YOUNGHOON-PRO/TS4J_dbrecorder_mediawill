@@ -618,16 +618,16 @@ public class DBRecorder_Insert {
 
           String tmp13 = st.nextToken();  // IP (192.168.74.175)
           String tmp14 = st.nextToken();  // ������ 0
-          String tmp15 = st.nextToken();  // REQUEST_KEY (CMP-20221122132409)
+          String tmp15 = "NoEAI"; //st.nextToken();  // REQUEST_KEY (CMP-20221122132409)
           
-          tmp15 = tmp15+"."+tmp5;
+          //tmp15 = tmp15+"."+tmp5;
           
           if (tmp5.equals("null")) {
             tmp5 = null;
           }
 
           if (tmp6.equals("null")) {
-            tmp6 = null;
+            tmp6 = null;	
           }
 
           statistics_MID(tmp1, String.valueOf(tmp2), Integer.parseInt(tmp11));
